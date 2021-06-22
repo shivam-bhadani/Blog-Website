@@ -9,6 +9,9 @@
   },
   "author": "shivam bhadani",
   "license": "ISC",
+  "engines": {
+    "node": "14.15.4"
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "ckeditor": "^4.12.1",
