@@ -33,17 +33,28 @@ router.get("/blog", async (req, res) => {
         res.render("blog", { blogs, category: 'Blog', categories, footerBlogs });
     } catch (error) {
         console.log(error);
+        res.redirect('/');
     }
 });
 
 router.get("/about-me", async (req, res) => {
-    let footerBlogs = await Blog.find().sort({ date: -1 }).limit(3);
-    res.render("about", { footerBlogs });
+    try {
+        let footerBlogs = await Blog.find().sort({ date: -1 }).limit(3);
+        res.render("about", { footerBlogs });
+    } catch (error) {
+        console.log(error);
+        res.redirect('/blog');
+    }
 });
 
 router.get("/contact-me", async (req, res) => {
-    let footerBlogs = await Blog.find().sort({ date: -1 }).limit(3);
-    res.render("contact", { footerBlogs });
+    try {
+        let footerBlogs = await Blog.find().sort({ date: -1 }).limit(3);
+        res.render("contact", { footerBlogs });
+    } catch (error) {
+        console.log(error);
+        res.redirect('/blog');
+    }
 });
 
 router.get('/blog/:titleSlug', async (req, res) => {
@@ -162,23 +173,6 @@ router.put('/reply/:blogId/:commentId', async (req, res) => {
 
 })
 
-// router.get('*', async (req, res) => {
-//     try {
-//         let blogs = await Blog.find().sort({ date: -1 });
-
-//         blogs.forEach(blog => {
-//             blog.createdAt = moment(blog.date).format('MMMM DD, YYYY');
-//             blog.commentNo = blog.comments.length + replyLength(blog.comments);
-//         })
-
-//         let footerBlogs = await Blog.find().sort({ date: -1 }).limit(3);
-//         let categories = getCategories(blogs);
-
-//         res.status(404).render("error404", { blogs, category: 'Blog', categories, footerBlogs });
-//     } catch (error) {
-//         console.log(error);
-//     }
-// })
 router.use(async (req, res, next) => {
     try {
         let blogs = await Blog.find().sort({ date: -1 });
