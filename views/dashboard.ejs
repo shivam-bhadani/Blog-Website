@@ -1,0 +1,33 @@
+<%- include('./partials/admin-header') %>
+    <link rel="shortcut icon" href="../favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <title>Document</title>
+    </head>
+
+    <body>
+        <%- include('./partials/admin-sidebar') %>
+            <section class="home-section">
+                <nav>
+                    <div class="sidebar-button">
+                        <i class='bx bx-menu sidebarBtn'></i>
+                        <span class="dashboard">Dashboard</span>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                    <div class="profile-details">
+                        <span class="admin_name">
+                            <%= user.name %>
+                        </span>
+                        <i class='bx bx-chevron-down'></i>
+                    </div>
+                </nav>
+
+                <!-- write content of home page here -->
+            </section>
+
+            <script src="../js/dashboard.js"></script>
+    </body>
+
+    </html>

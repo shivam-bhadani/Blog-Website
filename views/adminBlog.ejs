@@ -1,0 +1,56 @@
+<%- include('./partials/admin-header') %>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="shortcut icon" href="../favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/adminBlog.css">
+    <title>Document</title>
+    </head>
+
+    <body>
+        <%- include('./partials/admin-sidebar') %>
+            <section class="home-section">
+                <nav>
+                    <div class="sidebar-button">
+                        <i class='bx bx-menu sidebarBtn'></i>
+                        <span class="dashboard">Blogs</span>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                    <div class="profile-details">
+                        <span class="admin_name">
+                            <%= user.name %>
+                        </span>
+                        <i class='bx bx-chevron-down'></i>
+                    </div>
+                </nav>
+
+                <div class="blog-container">
+                    <% blogs.forEach((blog)=> { %>
+                        <div class="individual-blog-container">
+                            <h3 class="blog-title"><a href="/blog/<%= blog.titleSlug %>">
+                                    <%= blog.title %>
+                                </a></h3>
+                            <button class="btn btn-edit"><a href="/admin/edit-post/<%= blog.id %>">Edit</a></button>
+                            <form action="/admin/blog/<%= blog.id %>?_method=DELETE" class="delete-blog-form"
+                                method="POST" onsubmit="return confirmDelete()">
+                                <button class="btn btn-delete" type="submit">Delete</button>
+                            </form>
+                        </div>
+                        <% }) %>
+                </div>
+
+            </section>
+
+            <script src="../js/dashboard.js"></script>
+            <script>
+                function confirmDelete() {
+                    let result = confirm("Are you sure to delete this Blog")
+                    if (result)
+                        return true;
+                    return false;
+                }
+            </script>
+    </body>
+
+    </html>

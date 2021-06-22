@@ -1,0 +1,553 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.home-container{
+    width: 1100px;
+    margin: auto;
+}
+
+h1{
+    font-size: 2.1rem;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+img{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* header styling */
+
+.home-page-header{
+    display: flex;
+    /* background-image: linear-gradient(180deg, #fff 10%, #eef0f7); */
+    /* align-items: center; */
+    justify-content: space-between;
+    margin-top: 100px;
+    margin-bottom: 60px;
+}
+
+.header-img{
+    width: 50%;
+}
+
+.email-marketing-container{
+    padding: 30px;
+}
+
+.email-marketing-para{
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.email-marketing-form-container{
+    background-color: rgb(243, 186, 79);
+    width: fit-content;
+    padding: 40px 60px;
+    margin: auto;
+    border-radius: 20px;
+    /* box-shadow: 0px 5px 10px rgba(154, 160, 185, 0.2), 0px 15px 40px rgba(166, 173, 201, 0.2); */
+    box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+}
+
+.email-marketing-form-group{
+    margin: 20px 0;
+}
+
+.email-marketing-form-input{
+    width: 350px;
+    padding: 8px 10px;
+    font-size: 1.1rem;
+    outline: none;
+    border-radius: 15px;
+}
+
+.btn-email-marketing-submit{
+    padding: 8px 25px;
+    background-color: #0a78ee;
+    border: none;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+.btn-email-marketing-submit:hover{
+    cursor: pointer;
+    background-color: #0067d4;
+}
+
+
+
+
+
+
+/* .home-page-header{
+    margin-top: 110px;
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 190px;
+    grid-gap: 7px;
+}
+
+.header-para{
+    font-size: 1.2rem;
+}
+
+.header-img img{
+    max-width: 85%;
+    max-height: 85%;
+}
+
+.header-head{
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 2.7rem;
+}
+
+
+
+/* email marketing section styling */
+/* 
+.email-marketing-section{
+    /* background-color: #f2f2f2; */
+    /* background-image: linear-gradient(180deg, #fff 10%, #eef0f7); */
+
+}
+
+/* .email-marketing-para{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 90px 10px 15px 10px;
+}
+
+.email-marketing-form-container{
+    margin: auto;
+    width: 45%;
+    padding-bottom: 125px;
+} */ 
+
+/* .email-marketing-form-group{
+    margin-top: 50px;
+}
+
+.email-marketing-form-input{
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 10px 14px;
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 8px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    outline: none;
+} */
+
+/* .email-marketing-form-input:focus{
+    border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+.btn-email-marketing-submit{
+    margin-top: 40px;
+    width: 100%;
+    padding: 12px 0 12px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: rgb(252, 170, 19);
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.btn-email-marketing-submit:hover{
+    cursor: pointer;
+    background-color: rgb(233, 151, 0);
+}
+
+.email-marketing-error{
+    color: rgb(172, 0, 0);
+    font-weight: 700;
+} */
+
+
+
+
+/* blog section styling */
+
+/* .blog-heading{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.blog-section{
+    margin-top: 80px
+}
+
+.blog-section-container{
+    padding: 0 210px ;
+}
+
+.blog-img-wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 300px);
+    grid-gap: 35px;
+    margin-top: 60px;
+}
+
+.blog-img{
+    height: 200px;
+    width: 100%;
+    transition: filter 0.3s;
+}
+
+.blog-img-description{
+    padding: 10px;
+    text-align: center;
+    font-size: 1.1rem; */
+    /* font-family: 'Montserrat', sans-serif; */
+    /* font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+.blog-img-description a:hover{
+    text-decoration: underline;
+}
+
+.blog-img:hover{
+    filter: brightness(60%);
+}
+
+.all-posts{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    text-decoration: underline;
+    font-weight: 600;
+    /* font-family: 'Montserrat', sans-serif; */
+    /* font-family: 'Roboto', sans-serif;
+}
+.all-posts a:hover{
+    color: rgb(0, 0, 172);
+}  */
+
+
+
+/* affiliate section styling */
+
+/* .affiliate-section{ */
+    /* margin-top: 80px; */
+    /* background-color: #f2f2f2; */
+    /* background-image: linear-gradient(180deg, #fff 10%, #eef0f7); */
+/* } */
+
+/* .affiliate-heading{
+    text-align: center;
+    text-decoration: underline;
+    padding-top: 80px;
+}
+
+.affiliate-section-container{
+    padding: 0 210px ;
+}
+
+.affiliate-img-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    grid-gap: 35px;
+    margin-top: 60px;
+}
+
+.affiliate-img{
+    height: 200px;
+    width: 100%;
+}
+
+.all-deals{
+    text-align: center;
+    font-size: 1.5rem;
+    text-decoration: underline;
+    font-weight: 600;
+    /* font-family: 'Montserrat', sans-serif; */
+    /* font-family: 'Roboto', sans-serif;
+    margin-top: 40px;
+    padding-bottom: 85px;
+}
+
+.all-deals a:hover{
+    color: rgb(0, 0, 172);
+}  */
+
+
+
+
+
+/* Responsive design */
+
+
+
+
+/* 
+@media (max-width: 1400px){
+
+    .blog-section-container, .affiliate-section-container{
+        padding: 0 180px ;
+    }    
+}
+
+
+
+@media (max-width: 1320px){
+    .header-img img{
+        max-width: 90%;
+        max-height: 90%;
+    }
+    
+    .home-page-header{
+        grid-gap: 30px;
+        padding: 0 130px;
+    }
+
+    .blog-section-container, .affiliate-section-container{
+        padding: 0 120px ;
+    } 
+
+    .blog-img-wrapper, .affiliate-img-container{
+        grid-gap: 25px;
+    }
+
+} */
+
+/* 
+@media (max-width: 1200px){
+    .home-page-header{
+        padding: 0 60px;
+    }
+
+    .email-marketing-para{
+        padding: 90px 30px 15px 30px;
+    }
+    .email-marketing-form-container{
+        width: 60%;
+        padding-bottom: 120px;
+    }
+    .blog-section-container, .affiliate-section-container{
+        padding: 0 90px ;
+    } 
+    .blog-img-wrapper, .affiliate-img-container{
+        grid-gap: 20px;
+    }
+
+}
+
+
+@media (max-width: 1200px){
+    .blog-section-container{
+        padding: 0 70px ;
+    } 
+    .blog-img-wrapper, .affiliate-img-container{
+        grid-gap: 18px;
+    }
+    .blog-img, .affiliate-img{
+        height: 180px;
+    }
+}
+
+
+
+@media (max-width: 1010px){
+    .home-page-header{
+        padding: 0 30px;
+    }
+    .email-marketing-form-container{
+        width: 68%;
+    }
+
+    .blog-section-container, .affiliate-section-container{
+        padding: 0 50px ;
+    }
+    .blog-img, .affiliate-img{
+        height: 160px;
+    }
+}
+
+
+
+@media (max-width: 910px){
+    .home-page-header{
+        padding: 0 20px;
+    }
+
+    .header-img img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .email-marketing-form-container{
+        width: 70%;
+        padding-bottom: 100px;
+    }
+
+    .blog-section-container, .affiliate-section-container{
+        padding: 0 100px ;
+    }
+
+    .blog-img, .affiliate-img{
+        height: 200px;
+    }
+    .blog-img-wrapper, .affiliate-img-container{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 300px);
+        grid-gap: 35px;
+        margin-top: 60px;
+    }
+    .affiliate-img-container{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 200px);
+        grid-gap: 35px;
+        margin-top: 60px;
+    }
+}
+
+
+@media (max-width: 810px){
+
+    .blog-img, .affiliate-img{
+        height: 170px;
+    }
+}
+
+
+@media (max-width: 768px){
+    .home-page-header{
+        padding: 0 40px;
+        grid-template-columns: 1fr;
+    }
+    .email-marketing-para{
+        padding: 80px 40px 15px 30px;
+        text-align: start;
+    }
+    .email-marketing-form-container{
+        width: 80%;
+    }
+
+    .blog-section-container, .affiliate-section-container{
+        padding: 0 50px ;
+    }
+    .blog-img, .affiliate-img{
+        height: 200px;
+    }
+
+}
+
+
+@media (max-width: 700px){
+    .blog-img, .affiliate-img{
+        height: 170px;
+    }
+}
+
+@media (max-width: 620px){
+    .blog-img, .affiliate-img{
+        height: 150px;
+    }
+}
+
+
+@media (max-width: 576px){
+    .home-page-header{
+        padding: 0 20px;
+    }
+
+    .email-marketing-para{
+        padding: 80px 30px 15px 25px;
+        text-align: start;
+    }
+    .email-marketing-form-container{
+        width: 89%;
+    }
+
+    .blog-section-container, .affiliate-section-container{
+        padding: 0 30px ;
+    }
+}
+
+
+@media (max-width: 500px){
+
+    .blog-img-wrapper{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(6, 260px);
+        grid-gap: 35px;
+        margin-top: 60px;
+    }
+
+    .all-posts{
+        margin-top: 40px;
+    }
+
+    .blog-section-container, .affiliate-section-container{
+        padding: 0 50px ;
+    }
+    .blog-img, .affiliate-img{
+        height: 200px;
+    }
+
+    .affiliate-img-container{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2, 200px);
+        grid-gap: 35px;
+        margin-top: 60px;
+    }
+}
+
+
+@media (max-width: 480px){
+
+    .header-head{
+        font-size: 1.8rem;
+    }
+    .blog-heading, .affiliate-heading, .email-marketing-para{
+        font-size: 1.8rem;
+    }
+
+    .all-posts, .all-deals{
+        font-size: 1.2rem;
+    }
+
+    .blog-section-container, .affiliate-section-container{
+        padding: 0 30px;
+    }
+
+    .blog-img-wrapper{
+        grid-gap: 70px;
+    }
+    .blog-section-container, .affiliate-section-container{
+        padding: 0 40px ;
+
+    }
+}
+
+
+@media (max-width: 350px){
+
+    h1{
+        font-size: 2rem;
+    }
+} */
+ 

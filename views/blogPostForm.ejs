@@ -1,0 +1,97 @@
+<%- include('./partials/admin-header') %>
+    <link rel="shortcut icon" href="../..favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/new-post.css">
+
+    <title>Document</title>
+    </head>
+
+    <body>
+        <%- include('./partials/admin-sidebar') %>
+            <section class="home-section">
+                <nav>
+                    <div class="sidebar-button">
+                        <i class='bx bx-menu sidebarBtn'></i>
+                        <span class="dashboard">
+                            <%= pageTitle %>
+                        </span>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                    <div class="profile-details">
+                        <span class="admin_name">
+                            <%= user.name %>
+                        </span>
+                        <i class='bx bx-chevron-down'></i>
+                    </div>
+                </nav>
+
+                <div class="post-form-container">
+                    <form action="<%= formAction %>" method="POST" class="post-form" enctype="<%= enctype %>">
+
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" name="title" id="title" required class="post-form-input"
+                                value="<%= blog.title %>">
+                        </div>
+                        <div class="form-group">
+                            <label for="urlslug">URL Slug</label>
+                            <input type="text" name="urlSlug" id="urlslug" required class="post-form-input"
+                                value="<%= blog.urlSlug %>">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea name="description" id="description" rows="4" required
+                                class="post-form-input"><%= blog.description %></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="keywords">Keywords</label>
+                            <input type="text" name="keywords" id="keywords" value="<%= blog.keywords %>"
+                                class="post-form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="thumbnail">Thumbnail</label>
+                            <input type="file" name="thumbnail" id="thumbnail" class="post-form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <input type="text" name="category" id="category" class="post-form-input"
+                                value="<%= blog.category %>">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="content">Content</label>
+                            <textarea name="content" id="content" class="post-form-input"><%= blog.content %></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="article-post-btn">
+                                <%= btnType %>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </section>
+
+
+            <script src="../../ckeditor/ckeditor.js"></script>
+            <script>
+                UPLOADCARE_PUBLIC_KEY = 'demopublickey';
+                CKEDITOR.replace('content', {
+                    extraPlugins: ['justify', 'uploadcare', 'image2'],
+                    uploadcare: {
+                        multiple: true,
+                        crop: '1:1,4:3',
+                    },
+                    height: 500,
+                    extraAllowedContent: 'style;*[id,rel](*){*}',
+                });
+
+            </script>
+            <script src="../../js/dashboard.js"></script>
+    </body>
+
+    </html>

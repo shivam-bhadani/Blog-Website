@@ -1,0 +1,42 @@
+<nav class="navbar">
+    <div class="website-logo">
+        <a href="/">
+            <img src="./../images/Code Runners.png" alt="Logo" class="website-logo-img">
+            <div class="website-logo-name">Code Runners</div>
+        </a>
+    </div>
+
+    <span class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div class="nav-links">
+        <ul class="navul">
+            <li class="home"><a href="/">HOME</a></li>
+            <li><a href="/blog">BLOG</a></li>
+            <li><a href="/about-me">ABOUT ME</a></li>
+            <li><a href="/contact-me">CONTACT ME</a></li>
+            <!-- <li><a href="/guest-post">GUEST POST</a></li> -->
+            <li class="search-list">
+                <form action="/" class="seach-form" method="GET" onsubmit="return searchValidate()">
+                    <input type="text" placeholder="Search..." class="search-input" name="search" id="search">
+                    <button type="submit" class="search-btn">Search</button>
+                </form>
+
+            </li>
+        </ul>
+    </div>
+</nav>
+<script>
+    let search = document.getElementById("search");
+    function searchValidate() {
+        search.value = search.value.trim();
+        if (search.value == "") {
+            return false;
+        }
+        return true;
+    }
+
+</script>

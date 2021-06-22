@@ -1,0 +1,266 @@
+<%- include('./partials/header') %>
+
+    <link rel="shortcut icon" href="../favicon.jpg" type="image/x-icon">
+    <meta name="description" content="<%= blog.description %>">
+    <meta name="keywords" content="<%= blog.keywords %>">
+    <link rel="stylesheet" href="../../css/show.css">
+    <title>
+        <%= blog.title %> - Code Runners
+    </title>
+    </head>
+
+    <body>
+
+        <%- include("./partials/nav") %>
+
+
+            <!-- <header class="show-page-header">
+                <h1 class="blog-title">
+                    <%= blog.title %>
+                </h1><br>
+                <p class="navigaiton"><a href="/"><i class="fas fa-home"></i></a> >
+                    <a href="/category/<%= blog.categorySlug %>">
+                        <%= blog.category %>
+                    </a> >
+                    <%= blog.title %>
+                </p>
+            </header> -->
+
+
+            <div class="show-page-container">
+
+                <div class="show-wrapper">
+
+                    <div class="article-container">
+
+                        <h1 class="article-heading">
+                            <%= blog.title %>
+                        </h1>
+                        <div class="article-info">
+                            <i class="far fa-user"></i> Shivam - <i class="far fa-clock"></i>
+                            <%= blog.createdAt %> - <i class="far fa-folder"></i> <a
+                                    href="/category/<%=blog.categorySlug %>">
+                                    <%= blog.category %>
+                                </a> - <a href="#"><i class="far fa-comment"></i>
+                                    <%= blog.commentNo %> Comments
+                                </a>
+                        </div>
+                        <div class="blog-view">
+                            <%- blog.content %>
+                        </div>
+
+                        <div class="social-sharing-container">
+
+                            <div class="please-share">PLEASE SHARE THIS</div>
+
+                            <div class="social-sharing-icons-container" id="reply">
+                                <a href="#" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-icon googleplus"><i class="fab fa-google-plus-g"></i></a>
+                                <a href="#" class="social-icon pinterest"><i class="fab fa-pinterest-p"></i></a>
+                                <a href="#" class="social-icon reddit"><i class="fab fa-reddit-alien"></i></a>
+                                <a href="#" class="social-icon tumblr"><i class="fab fa-tumblr"></i></a>
+                                <a href="#" class="social-icon vk"><i class="fab fa-vk"></i></a>
+                            </div>
+
+                        </div>
+
+
+                        <div class="comment-container">
+
+                            <h3 class="leave-reply">Leave a Reply</h3>
+                            <div class="comment-area">
+                                <form action="<%= action %>" onsubmit="return validate()" method="POST"
+                                    id="commentForm">
+                                    <textarea id="commentBody" name="commentBody" rows="4"
+                                        placeholder="Your comment here..." class="input-comment"
+                                        required></textarea><br>
+                                    <div class="name-email-container">
+                                        <input type="text" placeholder="Name (required)" required class="input-comment"
+                                            id="commentName" name="name"><br>
+                                        <input type="email" placeholder="Email (required)" required
+                                            class="input-comment" id="commentEmail" name="email"><br>
+                                    </div>
+                                    <button class="btn-comment" type="submit" id="comment">POST COMMENT</button>
+                                </form>
+                            </div>
+
+                        </div>
+
+                        <div class="comment-no"><span class="comment-no-icon"><i class="fas fa-angle-right"></i></span>
+                            This
+                            Post has <%= blog.commentNo %> Comments</div>
+
+                        <div class="comment-users-container">
+
+                            <ul class="comment-ul">
+                                <% for(var i=comments.length-1; i>=0; i--) {%>
+
+                                    <li class="individual-comment-container">
+                                        <div class="individual-comment">
+                                            <div class="avatar"><img src="<%= comments[i].gravatarUrl %>"
+                                                    alt="Profile pic">
+                                            </div>
+                                            <div class="comment">
+                                                <div class="comment-user-name"><span class="user-name">
+                                                        <%= comments[i].name %>
+                                                    </span>
+                                                    <span class="user-date">
+                                                        <%= comments[i].createdAt %>
+                                                    </span>
+                                                </div>
+                                                <p class="comment-text">
+                                                    <%= comments[i].comment %>
+                                                </p>
+                                                <div class="reply"
+                                                    onclick="replyfunc('<%=comments[i].name %>', '<%= blog.id %>', '<%= comments[i].id %>')">
+                                                    <a href="#reply">Reply</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="reply-ul">
+                                            <% comments[i].replies.forEach(reply=> { %>
+                                                <li class="individual-reply-container">
+                                                    <div class="reply-comment">
+                                                        <div class="avatar-reply"><img src="<%= reply.gravatarUrl %>"
+                                                                alt="">
+                                                        </div>
+                                                        <div class="reply-content-container">
+                                                            <div class="reply-user-name"><span class="user-name">
+                                                                    <%= reply.name %>
+                                                                </span>
+                                                                <span class="user-date">
+                                                                    <%= reply.createdAt %>
+                                                                </span>
+                                                            </div>
+                                                            <p class="reply-text">
+                                                                <%= reply.reply %>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <% }) %>
+                                        </ul>
+
+                                    </li>
+
+                                    <% } %>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="container">
+
+                    <div class="recent-post-wrapper">
+
+                        <div class="recent-post-container">
+
+                            <div class="recent-post">Recent Posts</div>
+
+                            <% blogs.forEach((blog)=> { %>
+                                <div class="post-container">
+                                    <div class="post-img-container">
+                                        <a href="/blog/<%= blog.titleSlug %>">
+                                            <img src="../thumbnail/<%= blog.thumbnail %>" alt="blog-thumbnail">
+                                        </a>
+                                    </div>
+
+                                    <div class="post-content-container">
+                                        <div class="post">
+                                            <a href="/blog/<%= blog.titleSlug %>">
+                                                <%= blog.title %>
+                                            </a>
+                                        </div>
+                                        <div class="post-date-container">
+                                            <div class="post-date">
+                                                <%= blog.createdAt %> / <a href="#">
+                                                        <%= blog.commentNo %> COMMENTS
+                                                    </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }) %>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="newsletter-wrapper">
+                        <div class="news-letter-container">
+                            <div class="newsletter">Newsletter</div>
+                            <div class="newsletter-content">
+                                Get all latest content delivered to your email a few times a month. Updates and news
+                                about
+                                all
+                                categories will send to you.
+                            </div>
+                            <form action="/newsletter" method="POST" class="newsletter-form">
+                                <div class="newsletter-form-group"><input type="text" name="email"
+                                        placeholder="Your Email">
+                                </div>
+                                <div class="newsletter-form-group">
+                                    <button type="submit" class="newsletter-btn">GO</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <div class="categories-wrapper">
+                        <div class="categories-container">
+                            <div class="categories">CATEGORIES</div>
+                            <ul>
+                                <% categories.forEach((category)=> { %>
+                                    <li class="categories-content"><a href="/category/<%= category.categorySlug %>">
+                                            <%= category.uniqueCategory %>
+                                        </a></li>
+                                    <% }) %>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="advertise-container">
+                        <div class="advertise-img-container">
+                            <img src="../images/blog5.jpg" alt="ads">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <%- include('./partials/footer') %>
+
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+                    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+                    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                <script src="../js/comment.js"></script>
+                <script src="../js/navbar.js"></script>
+
+                <script>
+                    let commentForm = document.getElementById('commentForm')
+                    function replyfunc(name, blogId, commentId) {
+                        let leaveReply = document.getElementsByClassName('leave-reply')[0];
+                        commentForm.setAttribute('action', `/reply/${blogId}/${commentId}?_method=PUT`)
+                        leaveReply.innerHTML = `Reply to ${name}`;
+                        window.setTimeout(function () {
+                            document.getElementById('commentBody').focus();
+
+                        }, 0);
+                    }
+                </script>
+    </body>
+
+    </html>

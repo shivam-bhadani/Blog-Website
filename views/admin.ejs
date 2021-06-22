@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Shivam Bhadani">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+    <title>Code Runners - Admin</title>
+</head>
+
+<body>
+
+
+    <div class="admin-page-container">
+
+        <% if(messages.error) { %>
+            <div class="err">
+                <%= messages.error %>
+            </div>
+            <% } %>
+
+                <form action="/admin/login" class="admin-form" method="POST">
+                    <div class="admin-form-group">
+                        <label for="username">Username:</label><br>
+                        <input type="text" name="username" id="usename" class="admin-form-input">
+                    </div>
+                    <div class="admin-form-group">
+                        <label for="password">Password:</label><br>
+                        <input type="password" name="password" id="password" class="admin-form-input">
+                    </div>
+                    <div class="admin-form-group">
+                        <button type="submit" class="btn-admin">Login</button>
+                    </div>
+                </form>
+    </div>
+
+</body>
+
+</html>

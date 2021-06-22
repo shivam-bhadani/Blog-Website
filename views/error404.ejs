@@ -1,0 +1,110 @@
+<%- include('./partials/header') %>
+
+    <link rel="shortcut icon" href="../favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="/css/error404.css">
+    <title>Page not found - Code Runners</title>
+
+    </head>
+
+    <body>
+
+        <%- include("./partials/nav") %>
+
+            <div class="error-page-container">
+                <div class="error-wrapper">
+                    <div class="error-container">
+                        <h1 class="error-heading">404: Page not found</h1>
+                        <a href="/" class="back-home">Back to Home Page</a>
+                    </div>
+                </div>
+
+                <div class="container">
+
+                    <div class="recent-post-wrapper">
+
+                        <div class="recent-post-container">
+
+                            <div class="recent-post">Recent Posts</div>
+
+                            <% blogs.forEach((blog)=> { %>
+                                <div class="post-container">
+                                    <div class="post-img-container">
+                                        <a href="/blog/<%= blog.titleSlug %>">
+                                            <img src="../thumbnail/<%= blog.thumbnail %>" alt="blog-thumbnail">
+                                        </a>
+                                    </div>
+
+                                    <div class="post-content-container">
+                                        <div class="post">
+                                            <a href="/blog/<%= blog.titleSlug %>">
+                                                <%= blog.title %>
+                                            </a>
+                                        </div>
+                                        <div class="post-date-container">
+                                            <div class="post-date">
+                                                APRIL 28, 2021 / <a href="#">
+                                                    <%= blog.comment %> COMMENTS
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }) %>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="newsletter-wrapper">
+                        <div class="news-letter-container">
+                            <div class="newsletter">Newsletter</div>
+                            <div class="newsletter-content">
+                                Get all latest content delivered to your email a few times a month. Updates and news
+                                about
+                                all
+                                categories will send to you.
+                            </div>
+                            <form action="/newsletter" method="POST" class="newsletter-form">
+                                <div class="newsletter-form-group"><input type="text" name="email"
+                                        placeholder="Your Email">
+                                </div>
+                                <div class="newsletter-form-group">
+                                    <button type="submit" class="newsletter-btn">GO</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <div class="categories-wrapper">
+                        <div class="categories-container">
+                            <div class="categories">CATEGORIES</div>
+                            <ul>
+                                <% categories.forEach((category)=> { %>
+                                    <li class="categories-content"><a href="/category/<%= category.categorySlug %>">
+                                            <%= category.uniqueCategory %>
+                                        </a></li>
+                                    <% }) %>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="advertise-container">
+                        <div class="advertise-img-container">
+                            <img src="../images/blog5.jpg" alt="ads">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <%- include('./partials/footer') %>
+
+                <script src="../js/comment.js"></script>
+                <script src="../js/navbar.js"></script>
+    </body>
+
+    </html>

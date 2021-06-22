@@ -1,0 +1,133 @@
+<%- include('./partials/admin-header') %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+        integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+        crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="shortcut icon" href="../favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/adminComment.css">
+    <title>Document</title>
+    </head>
+
+    <body>
+        <%- include('./partials/admin-sidebar') %>
+    </body>
+
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard">Comments</span>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <i class='bx bx-search'></i>
+            </div>
+            <div class="profile-details">
+                <span class="admin_name">
+                    <%= user.name %>
+                </span>
+                <i class='bx bx-chevron-down'></i>
+            </div>
+        </nav>
+
+        <div class="blog-container">
+
+            <% blogs.forEach((blog)=> { %>
+                <div class="individual-blog-container">
+                    <h3 class="blog-title"><a href="/blog/<%= blog.titleSlug %>">
+                            <%= blog.title %>
+                        </a></h3>
+                    <button class="btn">Comments</button>
+                    <div class="comment-blog-container">
+                        <div class="comment-container">
+
+                            <h3 class="leave-reply">Leave a Reply</h3>
+                            <div class="comment-area">
+                                <form action="/admin/comment?_method=PUT" method="POST">
+                                    <textarea name=" comment" rows="3" placeholder="Your comment here..."
+                                        class="input-comment" required></textarea><br>
+                                    <button class="btn-comment" type="submit">POST COMMENT</button>
+                                </form>
+                            </div>
+
+                        </div>
+
+                        <div class="comment-users-container">
+
+                            <ul class="comment-ul">
+                                <% for(var i=blog.comments.length-1; i>=0; i--) {%>
+
+                                    <li class="individual-comment-container">
+                                        <div class="individual-comment">
+                                            <div class="avatar"><i class="fas fa-user-circle"></i></div>
+                                            <div class="comment">
+                                                <div class="comment-user-name"><span class="user-name">
+                                                        <%= blog.comments[i].name %>
+                                                    </span>
+                                                    <span class="user-date">
+                                                        March 25, 2019 At 4:29 PM
+                                                    </span>
+                                                </div>
+                                                <p class="comment-text">
+                                                    <%= blog.comments[i].comment %>
+                                                </p>
+                                                <div class="reply">
+                                                    <a>Reply</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="reply-ul">
+                                            <% blog.comments[i].replies.forEach(reply=> { %>
+                                                <li class="individual-reply-container">
+                                                    <div class="reply-comment">
+                                                        <div class="avatar-reply"><i class="fas fa-user-circle"></i>
+                                                        </div>
+                                                        <div class="reply-content-container">
+                                                            <div class="reply-user-name"><span class="user-name">
+                                                                    <%= reply.name %>
+                                                                </span>
+                                                                <span class="user-date">March 25, 2019 At 4:29 PM</span>
+                                                            </div>
+                                                            <p class="reply-text">
+                                                                <%= reply.reply %>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <% }) %>
+                                        </ul>
+
+                                    </li>
+
+                                    <% } %>
+
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+                <% }) %>
+
+        </div>
+
+    </section>
+
+    <script>
+
+        let btns = document.getElementsByClassName("btn");
+
+        for (var i = 0; i < btns.length; i++) {
+            let commentBlogContainer = document.getElementsByClassName("comment-blog-container")[i];
+            btns[i].addEventListener('click', () => {
+                commentBlogContainer.classList.toggle('active')
+            })
+        }
+
+    </script>
+
+    <script src="../js/dashboard.js"></script>
+    </body>
+
+    </html>

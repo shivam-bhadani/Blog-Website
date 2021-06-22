@@ -1,0 +1,97 @@
+<footer>
+    <div class="footer-container">
+        <div class="footer1">
+            <div class="footer-img">
+                <img src="../images/footer.png" alt="footer image">
+            </div>
+            <p>
+                Your earning ability today is largely dependent upon your knowledge, skill and your ability to
+                combine that knowledge and skill in such a way that you contribute value for which customers are
+                going to pay
+            </p>
+            <div class="social-media-icons">
+                <a href="" class="social-footer-icon facebook-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/_coderunners_/" target="_blank"
+                    class="social-footer-icon instagram-icon"><i class="fab fa-instagram"></i></a>
+                <a href="" class="social-footer-icon twitter-icon"><i class="fab fa-twitter"></i></a>
+                <a href="" class="social-footer-icon linkedin-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="footer2">
+            <div class="footer-heading">
+                Contact Info
+            </div>
+            <p>
+                If you have any query contact me. I reply all emails personally
+            </p>
+            <div class="contact-icon-wrapper">
+                <div class="contact-icon-container">
+                    <div class="contact-icon"><i class="fas fa-mobile"></i>
+                    </div>
+                    <div class="contact-icon-text-container">
+                        <p class="footer-contact">Mobile:</p>
+                        <p class="contact-icon-text">7004682009</p>
+                    </div>
+                </div>
+                <div class="contact-icon-container">
+                    <div class="contact-icon"><i class="far fa-envelope"></i>
+                    </div>
+                    <div class="contact-icon-text-container">
+                        <p class="footer-contact">Email:</p>
+                        <p class="contact-icon-text"><a
+                                href="mailto: coderunners10@gmail.com">coderunners10@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-icon-container">
+                    <div class="contact-icon"><i class="fas fa-link"></i></i>
+                    </div>
+                    <div class="contact-icon-text-container">
+                        <p class="footer-contact">Website:</p>
+                        <p class="contact-icon-text"><a href="#">yourwebsite.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer3">
+            <div class="footer-heading">
+                Recent Posts
+            </div>
+            <div class="footer-posts-container">
+
+                <% footerBlogs.forEach(blog=> { %>
+                    <div class="footer-post">
+                        <div class="footer-post-image-div">
+                            <a href="/blog/<%= blog.titleSlug %>">
+                                <img src="../../thumbnail/<%= blog.thumbnail %>" alt="image" class="footer-post-img">
+                            </a>
+                        </div>
+                        <p>
+                            <a href="/blog/<%= blog.titleSlug %>">
+                                <%= blog.title %>
+                            </a>
+                        </p>
+                    </div>
+                    <% }) %>
+
+            </div>
+        </div>
+        <div class="footer4">
+            <div class="footer-heading">
+                Newsletter
+            </div>
+            <p>
+                Get all latest content delivered to your email a few times a month. Updates and news about all
+                categories will send to you.
+            </p>
+            <form action="/newsletter" method="POST" class="footer-newsletter-form">
+                <div>
+                    <input type="text" placeholder="Your Email" class="footer-newsletter-input">
+                </div>
+                <div><button type="submit" class="footer-btn-newsletter">GO</button></div>
+            </form>
+        </div>
+    </div>
+    <div class="copy-right">
+        <p>&#xa9; Copyright 2021 - All Rights Reserved</p>
+    </div>
+</footer>

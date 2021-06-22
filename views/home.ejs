@@ -1,0 +1,51 @@
+<%- include('./partials/header') %>
+    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/home.css">
+
+    <title>Document</title>
+    </head>
+
+    <body>
+
+        <%- include("./partials/nav") %>
+
+            <div class="home-container">
+
+                <header class="home-page-header">
+                    <div class="header-img">
+                        <img src="images/header.jpg" alt="image">
+                    </div>
+                </header>
+
+
+                <section class="blog-section">
+                    <div class="blog-section-container">
+                        <h1 class="blog-heading">Most Recent Posts</h1>
+                        <div class="blog-img-wrapper">
+                            <% blogs.forEach((blog)=> { %>
+
+                                <div class="blog-container">
+                                    <div class="blog-img-div"><a href="/blog/<%= blog.titleSlug %>"><img
+                                                src="thumbnail/<%= blog.thumbnail %>" class="blog-img"></a>
+                                    </div>
+                                    <p class="blog-img-description"><a href="/blog/<%= blog.titleSlug %>">
+                                            <%= blog.title %>
+                                        </a>
+                                    </p>
+                                </div>
+
+                                <% }) %>
+
+                        </div>
+                        <div class="all-posts"><a href="/blog">All Posts</a></div>
+                    </div>
+                </section>
+            </div>
+
+            <%- include('./partials/footer') %>
+
+
+                <script src="js/navbar.js"></script>
+    </body>
+
+    </html>
