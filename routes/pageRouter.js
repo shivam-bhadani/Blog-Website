@@ -26,6 +26,10 @@ router.get("/", searchMiddleware, async (req, res) => {
     }
 });
 
+router.get('/blog', (req, res) => {
+    res.redirect('/');
+})
+
 router.get("/about-me", async (req, res) => {
     try {
         let footerBlogs = await Blog.find().sort({ date: -1 }).limit(3);
