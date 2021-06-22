@@ -11,14 +11,14 @@ router.get("/", checkNotAuthenticated, (req, res) => {
 });
 
 router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/admin/dashboard',
+    successRedirect: '/admin/blog',
     failureRedirect: '/admin',
     failureFlash: true
 }));
 
-router.get('/dashboard', checkAuthenticated, checkAdminAuthentication, (req, res) => {
-    res.render('dashboard', { user: req.user });
-})
+// router.get('/dashboard', checkAuthenticated, checkAdminAuthentication, (req, res) => {
+//     res.render('dashboard', { user: req.user });
+// })
 
 router.get("/new-post", checkAuthenticated, checkAdminAuthentication, (req, res) => {
     let blog = new Blog();
@@ -45,7 +45,7 @@ function checkAuthenticated(req, res, next) {
 
 function checkNotAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
-        res.redirect('/admin/dashboard');
+        res.redirect('/admin/blog');
     }
     else
         return next();
