@@ -6,19 +6,8 @@ const moment = require('moment');
 const gravatar = require('gravatar');
 let Newsletter = require('../models/newsletter');
 
+
 router.get("/", searchMiddleware, async (req, res) => {
-    try {
-        let blogs = await Blog.find().sort({ date: -1 });
-        let footerBlogs = await Blog.find().sort({ date: -1 }).limit(3);
-        res.render("home", { blogs, footerBlogs });
-    } catch (error) {
-        console.log(error);
-        res.redirect('/blog');
-    }
-});
-
-
-router.get("/blog", async (req, res) => {
     try {
         let blogs = await Blog.find().sort({ date: -1 });
 
