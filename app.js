@@ -5,6 +5,7 @@ const session = require('express-session');
 const passport = require('passport');
 const flash = require('express-flash');
 const methodOverride = require('method-override');
+const path = require('path');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -18,7 +19,7 @@ initPassport(passport);
 
 const Port = process.env.PORT || 8000
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "/public")));
 app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 require("./db/conn");
